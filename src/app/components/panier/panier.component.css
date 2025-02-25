@@ -201,6 +201,7 @@
 
 .btn-primary:hover {
   background-color: #2984e3;
+  transform: scale(1.05);
 }
 
 .btn-secondary {

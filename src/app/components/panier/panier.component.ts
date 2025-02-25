@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { HeaderComponent } from '../layout/header/header.component';
 
 interface Produit {
@@ -23,7 +23,7 @@ interface Panier {
 @Component({
   selector: 'app-panier',
   standalone: true,
-  imports: [HeaderComponent, CommonModule],
+  imports: [HeaderComponent, CommonModule, RouterModule],
   templateUrl: './panier.component.html',
   styleUrl: './panier.component.css',
 })
