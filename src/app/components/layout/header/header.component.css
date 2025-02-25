@@ -1,0 +1,8 @@
+app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Pour s'assurer que le header reste au-dessus des autres éléments */
+  background-color: #fff; /* ou votre couleur de fond */
+}

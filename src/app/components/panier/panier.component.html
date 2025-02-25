@@ -1,1 +1,80 @@
 <app-header></app-header>
+
+<div class="panier-container">
+  <div class="panier-header">
+    <h1>Votre panier</h1>
+  </div>
+
+  <div class="panier-empty" *ngIf="panier.items.length === 0">
+    <div class="empty-message">
+      <i class="fa fa-shopping-cart"></i>
+      <p>Votre panier est vide</p>
+      <button class="btn-primary" routerLink="/produits">
+        Continuer vos achats
+      </button>
+    </div>
+  </div>
+
+  <div class="panier-content" *ngIf="panier.items.length > 0">
+    <div class="panier-items">
+      <div class="item-header">
+        <span class="col-produit">Produit</span>
+        <span class="col-prix">Prix</span>
+        <span class="col-quantite">Quantité</span>
+        <span class="col-total">Total</span>
+        <span class="col-action"></span>
+      </div>
+
+      <div class="item-row" *ngFor="let item of panier.items">
+        <div class="col-produit">
+          <div class="produit-info">
+            <img [src]="item.produit.image" [alt]="item.produit.nom" />
+            <div class="produit-details">
+              <h3>{{ item.produit.nom }}</h3>
+              <p class="produit-description">{{ item.produit.description }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-prix">{{ item.produit.prix | currency : "EUR" }}</div>
+        <div class="col-quantite">
+          <div class="quantity-control">
+            <button (click)="diminuerQuantite(item)">-</button>
+            <span>{{ item.quantite }}</span>
+            <button (click)="augmenterQuantite(item)">+</button>
+          </div>
+        </div>
+        <div class="col-total">
+          {{ item.produit.prix * item.quantite | currency : "EUR" }}
+        </div>
+        <div class="col-action">
+          <button class="btn-supprimer" (click)="supprimerDuPanier(item)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panier-summary">
+      <div class="summary-row">
+        <span>Sous-total</span>
+        <span>{{ calculerSousTotal() | currency : "EUR" }}</span>
+      </div>
+      <div class="summary-row">
+        <span>Frais de livraison</span>
+        <span>{{ fraisLivraison | currency : "EUR" }}</span>
+      </div>
+      <div class="summary-row total">
+        <span>Total</span>
+        <span>{{ calculerTotal() | currency : "EUR" }}</span>
+      </div>
+      <div class="summary-actions">
+        <button class="btn-secondary" routerLink="/" routerLinkActive="active">
+          Continuer vos achats
+        </button>
+        <button class="btn-primary" (click)="procederCommande()">
+          Passer la commande
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
