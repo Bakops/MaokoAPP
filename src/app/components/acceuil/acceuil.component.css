@@ -1,0 +1,32 @@
+.custom-card {
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-card-img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.custom-card-body {
+  background-color: #f8f9fa;
+}
+
+.custom-card-title {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.custom-card-text {
+  color: #6c757d;
+}
+
+.custom-card-btn {
+  background-color: #007bff;
+  border: none;
+}
+
+.custom-card-btn:hover {
+  background-color: #0056b3;
+}

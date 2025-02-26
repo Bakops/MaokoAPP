@@ -11,6 +11,10 @@
 .products-section h1 {
   text-align: center;
   margin-bottom: 30px;
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   color: #333;
 }
 
@@ -22,6 +26,10 @@
 }
 
 .product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
@@ -36,11 +44,10 @@
 }
 
 .product-image {
-  width: 100%;
+  width: 70%;
   height: 200px;
   object-fit: contain;
   padding: 15px;
-  background-color: #f9f9f9;
 }
 
 .product-info {
@@ -52,13 +59,19 @@
   font-weight: 600;
   margin-bottom: 10px;
   color: #333;
-  height: 40px;
+  height: 50px;
   overflow: hidden;
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .product-description {
   color: #666;
-  font-size: 0.9rem;
+  font-family: Poppins, sans-serif;
+  font-size: 10px;
+  font-size: 12px;
   line-height: 1.4;
   margin-bottom: 15px;
   height: 70px;
@@ -77,16 +90,23 @@
   font-weight: bold;
   font-size: 1.2rem;
   color: #2c3e50;
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .add-to-cart {
-  background-color: #3498db;
+  background-color: #2984e3;
   color: white;
   border: none;
   padding: 8px 15px;
-  border-radius: 4px;
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 12px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 400;
   transition: background-color 0.2s;
 }
 
