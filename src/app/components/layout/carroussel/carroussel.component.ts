@@ -1,6 +1,5 @@
-// filepath: /c:/Users/ADM/Desktop/MAOKO ANGULAR/projet-maoko-angular/src/app/components/layout/carroussel/carroussel.component.ts
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-carroussel',
@@ -8,14 +7,23 @@ import { ProductService } from '../../../services/product.service';
   styleUrls: ['./carroussel.component.css'],
 })
 export class CarrousselComponent implements OnInit {
-  title = 'Carrousel de Produits';
   products: any[] = [];
+  productsChunks: any[][] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    this.productService.getProducts().subscribe((data) => {
-      this.products = data;
-    });
+  ngOnInit(): void {
+    this.http
+      .get('https://fakestoreapi.com/products')
+      .subscribe((data: any) => {
+        this.products = data;
+        this.chunkProducts();
+      });
+  }
+
+  chunkProducts(): void {
+    for (let i = 0; i < this.products.length; i += 3) {
+      this.productsChunks.push(this.products.slice(i, i + 3));
+    }
   }
 }

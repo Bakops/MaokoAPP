@@ -9,16 +9,17 @@ import { HeroHeaderComponent } from './components/layout/hero-header/hero-header
 import { TestApiComponent } from './services/test-api.component';
 
 @NgModule({
-  declarations: [
+  declarations: [TestApiComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule,
     AppComponent,
     HeaderComponent,
     HeroHeaderComponent,
-    TestApiComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
-  providers: [
-    { provide: LOCALE_ID, useValue: 'fr-FR' }, // Configure la locale pour France/Euro
-  ],
-  bootstrap: [AppComponent],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
+  bootstrap: [],
 })
 export class AppModule {}
