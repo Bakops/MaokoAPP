@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../layout/header/header.component';
+import { HeroHeaderProposComponent } from '../layout/hero-header-propos/hero-header-propos.component';
 
 @Component({
   selector: 'app-a-propos',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, HeroHeaderProposComponent],
   templateUrl: './a-propos.component.html',
   styleUrl: './a-propos.component.css',
 })

@@ -3,13 +3,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { HeaderComponent } from '../layout/header/header.component';
+import { HeroHeaderBoutiqueComponent } from '../layout/hero-header-boutique/hero-header-boutique.component';
 
 @Component({
   selector: 'app-boutique',
   templateUrl: './boutique.component.html',
   styleUrls: ['./boutique.component.scss'],
   standalone: true,
-  imports: [CommonModule, HttpClientModule, HeaderComponent],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    HeaderComponent,
+    HeroHeaderBoutiqueComponent,
+  ],
   providers: [ProductService],
 })
 export class BoutiqueComponent implements OnInit {

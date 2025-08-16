@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+.hero-header {
+  min-height: 70vh;
+  background: linear-gradient(45deg, #232526, #414345);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  padding: 2rem;
+  position: relative;
+}
+
+.hero-content {
+  color: white;
+  max-width: 1400px;
+  padding: 2rem;
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 5.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.surtitle {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2.5rem;
+  display: block;
+  line-height: 1.6;
+}
+
+.italic_texte {
+  font-style: italic;
+  font-weight: 800;
+}
+
+.cta-button {
+  padding: 1rem 2.5rem;
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button a {
+  color: #000;
+  text-decoration: none;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.bounce {
+  display: inline-block;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+@media (min-width: 1200px) {
+  .title {
+    font-size: 5rem;
+  }
+  .surtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .title {
+    font-size: 7rem;
+  }
+  .surtitle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .title {
+    font-size: 5.5rem;
+  }
+  .surtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 576px) {
+  .title {
+    font-size: 4rem;
+  }
+  .surtitle {
+    font-size: 1rem;
+  }
+  .hero-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .title {
+    font-size: 3rem;
+  }
+  .surtitle {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  .hero-content {
+    padding: 0.5rem;
+  }
+  .cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 400px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .surtitle {
+    font-size: 0.8rem;
+  }
+  .cta-button {
+    padding: 0.7rem 1.8rem;
+  }
+}
