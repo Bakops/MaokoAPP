@@ -10,7 +10,7 @@ import { HeaderComponent } from '../layout/header/header.component';
   styleUrls: ['./boutique.component.scss'],
   standalone: true,
   imports: [CommonModule, HttpClientModule, HeaderComponent],
-  providers: [ProductService], // Fournir le service localement
+  providers: [ProductService],
 })
 export class BoutiqueComponent implements OnInit {
   products: any[] = [];
@@ -26,13 +26,13 @@ export class BoutiqueComponent implements OnInit {
   loadProducts(): void {
     this.productService.getProducts().subscribe({
       next: (data) => {
-        console.log('Products loaded:', data);
+        console.log('Produit charger:', data);
         this.products = data;
         this.filteredProducts = data;
         this.loading = false;
       },
       error: (error) => {
-        console.error('Error loading products:', error);
+        console.error('Erreur lors du chargement des produits:', error);
         this.loading = false;
       },
     });

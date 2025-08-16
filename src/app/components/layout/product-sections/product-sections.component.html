@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mes Réalisations</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/lucide@latest/dist/lucide.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- realisation.component.html -->
+    <section class="realisations-section">
+      <div class="section-header">
+        <div class="badge">
+          <i class="w-3 h-3 mr-1" data-lucide="pen-tool"></i>
+          Nos Produits Phares
+        </div>
+        <h2 class="section-title">Collection Streetwear</h2>
+      </div>
+
+      <div class="carousel-container">
+        <button class="carousel-nav-btn prev" (click)="prevSlide()">
+          <i class="carousel-nav-icon" data-lucide="chevron-left"></i>
+        </button>
+
+        <div class="projects-grid">
+          <div
+            *ngFor="let project of visibleProjects"
+            class="project-card"
+            (click)="openUrl(project.liveUrl)"
+          >
+            <div class="card-image-container">
+              <img
+                [src]="project.image"
+                [alt]="project.title"
+                class="card-image"
+              />
+              <div class="image-overlay"></div>
+            </div>
+
+            <div class="card-content">
+              <div class="card-header">
+                <h3 class="card-title">{{ project.title }}</h3>
+                <p class="card-description">{{ project.description }}</p>
+              </div>
+
+              <div class="card-footer">
+                <span class="current-price">{{ project.price }}</span>
+                <div class="project-links">
+                  <button
+                    *ngIf="project.liveUrl"
+                    class="project-link"
+                    (click)="openUrl(project.liveUrl, $event)"
+                  >
+                    <i class="link-icon" data-lucide="globe"></i>
+                    Ajouter au panier
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-nav-btn next" (click)="nextSlide()">
+          <i class="carousel-nav-icon" data-lucide="chevron-right"></i>
+        </button>
+
+        <div class="pagination">
+          <div
+            *ngFor="let i of [].constructor(slidesCount); let index = index"
+            class="pagination-dot"
+            [class.active]="currentIndex === index"
+            (click)="goToSlide(index)"
+          ></div>
+        </div>
+      </div>
+
+      <div style="text-align: center">
+        <a href="/boutique" class="see-all-btn"> Voir tout les produits </a>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+
+      // Simple carousel functionality
+      const projects = document.querySelectorAll(".project-card");
+      const dots = document.querySelectorAll(".pagination-dot");
+      const prevBtn = document.querySelector(".prev");
+      const nextBtn = document.querySelector(".next");
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        projects.forEach((project, index) => {
+          if (index >= currentIndex * 3 && index < currentIndex * 3 + 3) {
+            project.style.display = "block";
+          } else {
+            project.style.display = "none";
+          }
+        });
+
+        dots.forEach((dot, index) => {
+          if (index === currentIndex) {
+            dot.classList.add("active");
+          } else {
+            dot.classList.remove("active");
+          }
+        });
+      }
+
+      prevBtn.addEventListener("click", () => {
+        currentIndex =
+          (currentIndex - 1 + Math.ceil(projects.length / 3)) %
+          Math.ceil(projects.length / 3);
+        updateCarousel();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % Math.ceil(projects.length / 3);
+        updateCarousel();
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          currentIndex = index;
+          updateCarousel();
+        });
+      });
+
+      // Initialize
+      updateCarousel();
+
+      // Responsive adjustments
+      function handleResize() {
+        const isMobile = window.innerWidth < 768;
+        const slidesCount = isMobile
+          ? projects.length
+          : Math.ceil(projects.length / 3);
+
+        // Update dots based on screen size
+        document.querySelector(".pagination").innerHTML = "";
+        for (let i = 0; i < slidesCount; i++) {
+          const dot = document.createElement("div");
+          dot.className = `pagination-dot ${
+            i === currentIndex ? "active" : ""
+          }`;
+          dot.addEventListener("click", () => {
+            currentIndex = i;
+            updateCarousel();
+          });
+          document.querySelector(".pagination").appendChild(dot);
+        }
+
+        updateCarousel();
+      }
+
+      window.addEventListener("resize", handleResize);
+      handleResize();
+    </script>
+  </body>
+</html>

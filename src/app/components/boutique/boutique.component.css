@@ -9,13 +9,13 @@
 }
 
 .products-section h1 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-family: Poppins, sans-serif;
-  font-weight: 400;
+  font-size: 2rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #000;
 }
 
 .products-grid {
@@ -34,7 +34,6 @@
   border-radius: 8px;
   overflow: hidden;
   background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -55,16 +54,12 @@
 }
 
 .product-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #333;
-  height: 50px;
-  overflow: hidden;
-  font-family: Poppins, sans-serif;
-  font-weight: 400;
+  font-size: 1.25rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s;
+  font-family: poppins, sans-serif;
 }
 
 .product-description {
@@ -73,7 +68,6 @@
   font-size: 10px;
   font-size: 12px;
   line-height: 1.4;
-  margin-bottom: 15px;
   height: 70px;
   overflow: hidden;
 }
@@ -82,8 +76,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
 }
 
 .price {
