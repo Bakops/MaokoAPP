@@ -50,6 +50,11 @@
   transform: scale(1.05);
 }
 
+.cta-button a {
+  color: #000;
+  text-decoration: none;
+}
+
 .italic_texte {
   font-style: italic;
   font-weight: 800;

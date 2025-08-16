@@ -3,14 +3,11 @@
   <section class="products-section">
     <h1>Notre Boutique</h1>
 
-    <!-- Indicateur de chargement -->
     <div *ngIf="loading" class="loading-spinner">
       Chargement des produits...
     </div>
 
-    <!-- Grille de produits -->
     <div class="products-grid">
-      <!-- Carte de produit pour chaque produit -->
       <div *ngFor="let product of filteredProducts" class="product-card">
         <img
           [src]="product.image"
