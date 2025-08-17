@@ -38,28 +38,33 @@
         </div>
       </div>
 
-      <!-- Header principal -->
       <header class="header2">
         <nav class="nav-container">
-          <!-- Menu burger (visible mobile) -->
-          <div class="menu-icon" id="menu-icon">
-            <div></div>
-            <div></div>
-            <div></div>
+          <div class="menu-icon" (click)="toggleMenu()">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              [class.active]="isMenuOpen"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M3 6C3 5.44772 3.44772 5 4 5H20C20.5523 5 21 5.44772 21 6C21 6.55228 20.5523 7 20 7H4C3.44772 7 3 6.55228 3 6ZM3 12C3 11.4477 3.44772 11 4 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H4C3.44772 13 3 12.5523 3 12ZM3 18C3 17.4477 3.44772 17 4 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H4C3.44772 19 3 18.5523 3 18Z"
+                fill="#0F1729"
+              />
+            </svg>
           </div>
 
-          <!-- Logo (centré sur desktop) -->
-          <a routerLink="/" routerLinkActive="active" class="logo-container">
+          <a routerLink="/" class="logo-container">
             <span class="logo">MAOKO.</span>
           </a>
 
-          <!-- Panier (aligné à droite) -->
-          <a routerLink="/panier" routerLinkActive="active" class="cart-button">
+          <a routerLink="/panier" class="cart-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="20"
-              fill="currentColor"
               viewBox="0 0 16 16"
             >
               <path
@@ -69,14 +74,37 @@
           </a>
         </nav>
 
-        <!-- Navigation principale -->
-        <div class="nav-links" id="nav-links">
-          <a routerLink="/" routerLinkActive="active">ACCEUIL</a>
-          <a routerLink="/boutique" routerLinkActive="active">BOUTIQUE</a>
-          <a routerLink="/collection" routerLinkActive="active">COLLECTION</a>
-          <a routerLink="/a_propos" routerLinkActive="active">A PROPOS</a>
-          <a routerLink="/faq" routerLinkActive="active">FAQ</a>
-          <a routerLink="/contact" routerLinkActive="active">CONTACT</a>
+        <div class="nav-links" [class.active]="isMenuOpen">
+          <a routerLink="/" routerLinkActive="active" (click)="closeMenu()"
+            >ACCEUIL</a
+          >
+          <a
+            routerLink="/boutique"
+            routerLinkActive="active"
+            (click)="closeMenu()"
+            >BOUTIQUE</a
+          >
+          <a
+            routerLink="/collection"
+            routerLinkActive="active"
+            (click)="closeMenu()"
+            >COLLECTION</a
+          >
+          <a
+            routerLink="/a_propos"
+            routerLinkActive="active"
+            (click)="closeMenu()"
+            >A PROPOS</a
+          >
+          <a routerLink="/faq" routerLinkActive="active" (click)="closeMenu()"
+            >FAQ</a
+          >
+          <a
+            routerLink="/contact"
+            routerLinkActive="active"
+            (click)="closeMenu()"
+            >CONTACT</a
+          >
         </div>
       </header>
     </div>
@@ -86,10 +114,25 @@
         const menuIcon = document.getElementById("menu-icon");
         const navLinks = document.getElementById("nav-links");
 
-        menuIcon.addEventListener("click", function () {
+        menuIcon.addEventListener("click", function (e) {
+          e.stopPropagation();
           navLinks.classList.toggle("active");
-          menuIcon.classList.toggle("active");
           document.body.classList.toggle("menu-open");
+        });
+
+        document.addEventListener("click", function (e) {
+          if (
+            navLinks.classList.contains("active") &&
+            !navLinks.contains(e.target) &&
+            e.target !== menuIcon
+          ) {
+            navLinks.classList.remove("active");
+            document.body.classList.remove("menu-open");
+          }
+        });
+
+        navLinks.addEventListener("click", function (e) {
+          e.stopPropagation();
         });
       });
     </script>

@@ -10,9 +10,8 @@ body {
   overflow-x: hidden;
 }
 
-/* HERO HEADER */
 .hero-header {
-  min-height: 100vh;
+  min-height: 85vh;
   background: linear-gradient(45deg, #2196f3, #3f51b5);
   display: flex;
   align-items: center;
@@ -29,7 +28,6 @@ body {
   padding: 2rem;
 }
 
-/* TYPOGRAPHY */
 .title {
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
