@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grille Catégories Responsive</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      .category-grid {
+        display: grid;
+        width: 100vw;
+        min-height: 100vh;
+      }
+
+      .category-block {
+        border: 1px solid #fff;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 40px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 50vh;
+      }
+
+      /* Images de fond pour chaque catégorie */
+      .shirts {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+      }
+
+      .pants {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+      }
+
+      .jackets {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+      }
+
+      .shoes {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1463100099107-aa0980c362e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+      }
+
+      .category-title {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .collection-title {
+        font-weight: 600;
+        font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+        margin-bottom: 1rem;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      .product-types {
+        list-style-type: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .product-types li {
+        margin-bottom: 0.5rem;
+        font-weight: 400;
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .price-tag {
+        font-weight: 700;
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      .promo-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        font-weight: 600;
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        z-index: 100;
+      }
+
+      /* Mobile (par défaut) - 1 colonne */
+      @media (max-width: 599px) {
+        .category-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .category-block {
+          min-height: 40vh;
+        }
+      }
+
+      /* Tablette (600px à 1023px) - 2 colonnes */
+      @media (min-width: 600px) and (max-width: 1023px) {
+        .category-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .category-block {
+          min-height: 45vh;
+        }
+      }
+
+      /* Desktop (1024px et plus) - 2x2 grid */
+      @media (min-width: 1024px) {
+        .category-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 50vh);
+          height: 100vh;
+        }
+
+        .category-block {
+          min-height: auto;
+          height: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="category-grid">
+      <!-- Bloc Chemises -->
+      <div class="category-block shirts">
+        <h2 class="category-title">Chemises</h2>
+        <ul class="product-types">
+          <li>Chemises Élégantes</li>
+          <li>Chemises Casual</li>
+          <li>Chemise Business</li>
+          <li>Polos</li>
+        </ul>
+        <div class="price-tag">À PARTIR DE 39,95 €</div>
+      </div>
+
+      <!-- Bloc Pantalons -->
+      <div class="category-block pants">
+        <h2 class="category-title">Pantalons</h2>
+        <ul class="product-types">
+          <li>Chinos</li>
+          <li>Pantalons Habillés</li>
+          <li>Pantalons Casual</li>
+          <li>Pantalons Costume</li>
+          <li>Shorts</li>
+        </ul>
+      </div>
+
+      <!-- Bloc Vestes -->
+      <div class="category-block jackets">
+        <h2 class="category-title">Vestes</h2>
+        <ul class="product-types">
+          <li>Blazers</li>
+          <li>Vestes Casual</li>
+          <li>Manteaux</li>
+          <li>Vestes en Cuir</li>
+        </ul>
+      </div>
+
+      <!-- Bloc Chaussures -->
+      <div class="category-block shoes">
+        <h2 class="category-title">Chaussures</h2>
+        <ul class="product-types">
+          <li>Chaussures Habillées</li>
+          <li>Baskets</li>
+          <li>Bottes</li>
+          <li>Sandales</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
