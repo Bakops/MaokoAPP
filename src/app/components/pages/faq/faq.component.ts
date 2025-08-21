@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../layout/header/header.component';
-import { HeroHeaderFaqComponent } from '../layout/hero-header-faq/hero-header-faq.component';
+import { HeaderComponent } from '../../layout/header/header.component';
+import { HeroHeaderFaqComponent } from '../../layout/hero-header-faq/hero-header-faq.component';
 
 @Component({
   selector: 'app-faq',

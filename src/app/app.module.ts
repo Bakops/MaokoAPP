@@ -4,15 +4,12 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FemmeComponent } from './components/femme/femme.component';
-import { HommeComponent } from './components/homme/homme.component';
 import { HeaderComponent } from './components/layout/header/header.component';
-import { HeroHeaderFemmeComponent } from './components/layout/hero-header-femme/hero-header-femme.component';
 import { HeroHeaderHommeComponent } from './components/layout/hero-header-homme/hero-header-homme.component';
 import { HeroHeaderComponent } from './components/layout/hero-header/hero-header.component';
 
 @NgModule({
-  declarations: [HommeComponent, FemmeComponent, HeroHeaderFemmeComponent],
+  declarations: [],
   imports: [
     BrowserModule,
     AppRoutingModule,

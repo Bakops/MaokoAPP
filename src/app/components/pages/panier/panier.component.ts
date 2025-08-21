@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { HeaderComponent } from '../layout/header/header.component';
+import { HeaderComponent } from '../../layout/header/header.component';
 
 interface Produit {
   id: number;
