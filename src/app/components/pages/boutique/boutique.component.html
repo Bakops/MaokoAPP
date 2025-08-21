@@ -1,32 +1,4 @@
 <app-header></app-header>
 <app-hero-header-boutique></app-hero-header-boutique>
-<main class="boutique-container">
-  <section class="products-section">
-    <h1>Notre Boutique</h1>
 
-    <div *ngIf="loading" class="loading-spinner">
-      Chargement des produits...
-    </div>
-
-    <div class="products-grid">
-      <div *ngFor="let product of filteredProducts" class="product-card">
-        <img
-          [src]="product.image"
-          [alt]="product.title"
-          class="product-image"
-        />
-        <div class="product-info">
-          <h2 class="product-title">{{ product.title }}</h2>
-          <p class="product-description">
-            {{ product.description.substring(0, 100) }}...
-          </p>
-          <div class="product-footer">
-            <span class="price">{{ product.price.toFixed(2) }} €</span>
-            <button class="add-to-cart">Ajouter au panier</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
 <app-footer></app-footer>
