@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
+import { FooterComponent } from '../../layout/footer/footer.component';
 import { HeaderComponent } from '../../layout/header/header.component';
 import { HeroHeaderBoutiqueComponent } from '../../layout/hero-header-boutique/hero-header-boutique.component';
 
@@ -15,6 +16,7 @@ import { HeroHeaderBoutiqueComponent } from '../../layout/hero-header-boutique/h
     HttpClientModule,
     HeaderComponent,
     HeroHeaderBoutiqueComponent,
+    FooterComponent,
   ],
   providers: [ProductService],
 })

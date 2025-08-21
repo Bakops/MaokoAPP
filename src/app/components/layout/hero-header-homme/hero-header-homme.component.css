@@ -11,7 +11,9 @@ body {
 
 .hero-header {
   min-height: 55vh;
-  background: linear-gradient(45deg, #ff512f, #dd2476);
+  background-image: url("/image-categorie-homme-hero-header.webp");
+  background-size: cover;
+  background-position: top;
   display: flex;
   align-items: center;
   justify-content: left;
