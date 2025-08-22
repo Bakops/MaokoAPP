@@ -4,8 +4,10 @@ import { AProposComponent } from './components/pages/a-propos/a-propos.component
 import { AcceuilComponent } from './components/pages/acceuil/acceuil.component';
 import { BoutiqueComponent } from './components/pages/boutique/boutique.component';
 import { CollectionComponent } from './components/pages/collection/collection.component';
+import { CompteComponent } from './components/pages/compte/compte.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { FaqComponent } from './components/pages/faq/faq.component';
+import { FavorisComponent } from './components/pages/favoris/favoris.component';
 import { FemmeComponent } from './components/pages/femme/femme.component';
 import { HommeComponent } from './components/pages/homme/homme.component';
 import { PanierComponent } from './components/pages/panier/panier.component';
@@ -20,6 +22,8 @@ export const routes: Routes = [
   { path: 'panier', component: PanierComponent },
   { path: 'homme', component: HommeComponent },
   { path: 'femme', component: FemmeComponent },
+  { path: 'compte', component: CompteComponent },
+  { path: 'favoris', component: FavorisComponent },
   { path: '**', redirectTo: '' },
 ];
 
