@@ -7,9 +7,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { HeroHeaderHommeComponent } from './components/layout/hero-header-homme/hero-header-homme.component';
 import { HeroHeaderComponent } from './components/layout/hero-header/hero-header.component';
+import { ButtonBackTopComponent } from './button-back-top/button-back-top.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ButtonBackTopComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

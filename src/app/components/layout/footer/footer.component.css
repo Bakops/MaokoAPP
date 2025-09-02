@@ -24,7 +24,6 @@ a:hover {
   color: #000;
 }
 
-/* Conteneur principal */
 .container {
   width: 100%;
   max-width: 1140px;
@@ -32,7 +31,6 @@ a:hover {
   padding: 0 15px;
 }
 
-/* Footer */
 footer {
   background-color: #fff;
 }
@@ -47,7 +45,6 @@ footer {
   margin: 0 -15px;
 }
 
-/* Colonnes */
 .footer-column {
   padding: 0 15px;
   margin-bottom: 1.5rem;
@@ -65,7 +62,6 @@ footer {
   flex: 0 0 100%;
 }
 
-/* Logo */
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
@@ -80,7 +76,6 @@ footer {
   margin-bottom: 1.5rem;
 }
 
-/* Liste des réseaux sociaux */
 .social-links {
   display: flex;
   margin-top: 1.5rem;
@@ -99,7 +94,6 @@ footer {
   color: #000;
 }
 
-/* Titres */
 .footer-title {
   text-transform: uppercase;
   font-weight: 700;
@@ -107,7 +101,6 @@ footer {
   font-size: 1rem;
 }
 
-/* Liens */
 .footer-links-list li {
   margin-bottom: 0.5rem;
 }
