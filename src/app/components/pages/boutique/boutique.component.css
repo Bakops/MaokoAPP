@@ -116,7 +116,6 @@
   color: #666;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .products-grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

@@ -41,7 +41,6 @@
         min-height: 50vh;
       }
 
-      /* Images de fond pour chaque catégorie */
       .shirts {
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.3),
@@ -121,7 +120,6 @@
         z-index: 100;
       }
 
-      /* Mobile (par défaut) - 1 colonne */
       @media (max-width: 599px) {
         .category-grid {
           grid-template-columns: 1fr;
@@ -132,7 +130,6 @@
         }
       }
 
-      /* Tablette (600px à 1023px) - 2 colonnes */
       @media (min-width: 600px) and (max-width: 1023px) {
         .category-grid {
           grid-template-columns: repeat(2, 1fr);
@@ -143,7 +140,6 @@
         }
       }
 
-      /* Desktop (1024px et plus) - 2x2 grid */
       @media (min-width: 1024px) {
         .category-grid {
           grid-template-columns: repeat(2, 1fr);
