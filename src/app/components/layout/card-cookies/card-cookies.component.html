@@ -1,0 +1,18 @@
+<div *ngIf="isVisible" class="cookie-card">
+  <div class="cookie-header">
+    <button class="close-btn" (click)="closeCard()">✕</button>
+  </div>
+
+  <div class="cookie-content">
+    <div class="cookie-icon"><img src="cookie_image.webp" alt="" /></div>
+    <h3>Nous utilisons des cookies</h3>
+    <p>
+      Pour améliorer votre expérience, analyser le trafic et personnaliser le
+      contenu. Vous pouvez accepter ou refuser selon vos préférences.
+    </p>
+    <div class="button-group">
+      <button class="accept-btn" (click)="acceptCookies()">Accepter</button>
+      <button class="refuse-btn" (click)="refuseCookies()">Refuser</button>
+    </div>
+  </div>
+</div>

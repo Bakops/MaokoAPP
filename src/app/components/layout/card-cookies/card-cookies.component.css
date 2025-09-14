@@ -1,0 +1,125 @@
+.cookie-card {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 340px;
+  max-width: 90%;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+  animation: fadeIn 0.4s ease-in-out;
+  transition: all 0.3s ease;
+}
+
+.cookie-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 12px;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #666;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #000;
+  transform: rotate(90deg);
+}
+
+.cookie-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.cookie-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  animation: bounce 1.5s infinite;
+}
+
+.cookie-icon img {
+  width: 4rem;
+}
+
+h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: Poppins, sans-serif;
+  color: #333;
+}
+
+p {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 16px;
+  line-height: 1.4;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.accept-btn,
+.refuse-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.accept-btn {
+  background-color: #2885e3;
+  color: white;
+  box-shadow: 0 3px 8px rgba(0, 89, 255, 0.3);
+}
+
+.accept-btn:hover {
+  background-color: #f5a623;
+  box-shadow: 0 3px 8px rgba(255, 187, 0, 0.3);
+}
+
+.refuse-btn {
+  background: #f1f1f1;
+  color: #444;
+}
+
+.refuse-btn:hover {
+  background: #e0e0e0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}

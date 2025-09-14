@@ -9,11 +9,13 @@ import { HeroHeaderHommeComponent } from './components/layout/hero-header-homme/
 import { HeroHeaderComponent } from './components/layout/hero-header/hero-header.component';
 import { ButtonBackTopComponent } from './button-back-top/button-back-top.component';
 import { ProduitListComponent } from './produit-list/produit-list.component';
+import { CardCookiesComponent } from './card-cookies/card-cookies.component';
 
 @NgModule({
   declarations: [
     ButtonBackTopComponent,
-    ProduitListComponent
+    ProduitListComponent,
+    CardCookiesComponent
   ],
   imports: [
     BrowserModule,

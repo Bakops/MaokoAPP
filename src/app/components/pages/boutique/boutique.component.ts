@@ -5,7 +5,6 @@ import { ProductService } from '../../../services/product.service';
 import { FooterComponent } from '../../layout/footer/footer.component';
 import { HeaderComponent } from '../../layout/header/header.component';
 import { HeroHeaderBoutiqueComponent } from '../../layout/hero-header-boutique/hero-header-boutique.component';
-import { ProduitListComponent } from '../../layout/produit-list/produit-list.component';
 
 @Component({
   selector: 'app-boutique',
@@ -18,7 +17,6 @@ import { ProduitListComponent } from '../../layout/produit-list/produit-list.com
     HeaderComponent,
     HeroHeaderBoutiqueComponent,
     FooterComponent,
-    ProduitListComponent,
   ],
   providers: [ProductService],
 })
