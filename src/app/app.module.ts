@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { HeroHeaderHommeComponent } from './components/layout/hero-header-homme/hero-header-homme.component';
 import { HeroHeaderComponent } from './components/layout/hero-header/hero-header.component';
+import { SliderComponent } from './components/layout/slider/slider.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [SliderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
