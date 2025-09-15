@@ -1,167 +1,124 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mes Réalisations</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://unpkg.com/lucide@latest/dist/lucide.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <section class="realisations-section">
-      <div class="section-header">
-        <div class="badge">
-          <i class="w-3 h-3 mr-1" data-lucide="pen-tool"></i>
-          Nos Produits Phares
+<section class="realisations-section">
+  <div class="section-header">
+    <div class="badge">
+      <i class="w-3 h-3 mr-1" data-lucide="pen-tool"></i>
+      Nos Produits Phares
+    </div>
+    <h2 class="section-title">Collection Streetwear</h2>
+  </div>
+
+  <div class="carousel-container">
+    <button class="carousel-nav-btn prev" (click)="prevSlide()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-chevron-left"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+        />
+      </svg>
+    </button>
+
+    <div class="projects-grid">
+      <div *ngFor="let project of visibleProjects" class="product-card">
+        <div class="badge" *ngIf="project.badge">{{ project.badge }}</div>
+        <div class="tilt">
+          <div class="img">
+            <img [src]="project.image" [alt]="project.title" />
+          </div>
         </div>
-        <h2 class="section-title">Collection Streetwear</h2>
-      </div>
-
-      <div class="carousel-container">
-        <button class="carousel-nav-btn prev" (click)="prevSlide()">
-          <i class="carousel-nav-icon" data-lucide="chevron-left"></i>
-        </button>
-
-        <div class="projects-grid">
-          <div
-            *ngFor="let project of visibleProjects"
-            class="project-card"
-            (click)="openUrl(project.liveUrl)"
-          >
-            <div class="card-image-container">
-              <img
-                [src]="project.image"
-                [alt]="project.title"
-                class="card-image"
-              />
-              <div class="image-overlay"></div>
+        <div class="info">
+          <div class="cat">{{ project.client }}</div>
+          <h2 class="title">{{ project.title }}</h2>
+          <p class="desc">{{ project.description }}</p>
+          <div class="feats">
+            <span class="feat" *ngFor="let tech of project.technologies">{{
+              tech
+            }}</span>
+          </div>
+          <div class="bottom">
+            <div class="price">
+              <span class="old" *ngIf="project.originalPrice">{{
+                project.originalPrice
+              }}</span>
+              <span class="new">{{ project.price }}</span>
             </div>
-
-            <div class="card-content">
-              <div class="card-header">
-                <h3 class="card-title">{{ project.title }}</h3>
-                <p class="card-description">{{ project.description }}</p>
-              </div>
-
-              <div class="card-footer">
-                <span class="current-price">{{ project.price }}</span>
-                <div class="project-links">
-                  <button
-                    *ngIf="project.liveUrl"
-                    class="project-link"
-                    (click)="openUrl(project.liveUrl, $event)"
-                  >
-                    <i class="link-icon" data-lucide="globe"></i>
-                    Ajouter au panier
-                  </button>
-                </div>
-              </div>
+            <button class="btn" (click)="onAddToCart(project, $event)">
+              <span>Ajouter au panier</span>
+              <svg
+                class="icon"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 01-8 0" />
+              </svg>
+            </button>
+          </div>
+          <div class="meta" *ngIf="project.rating && project.reviewCount">
+            <div class="rating">
+              <svg
+                *ngFor="let star of getStarsArray()"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                [attr.fill]="star <= (project.rating || 0) ? '#FFD700' : 'none'"
+                [attr.stroke]="
+                  star <= (project.rating || 0) ? '#FFD700' : '#D1D5DB'
+                "
+                stroke-width="0.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <span class="rcount">{{ project.reviewCount }} Reviews</span>
+            </div>
+            <div class="stock" [class.out-of-stock]="!project.inStock">
+              {{ project.inStock ? "En Stock" : "Rupture de stock" }}
             </div>
           </div>
         </div>
-
-        <button class="carousel-nav-btn next" (click)="nextSlide()">
-          <i class="carousel-nav-icon" data-lucide="chevron-right"></i>
-        </button>
-
-        <div class="pagination">
-          <div
-            *ngFor="let i of [].constructor(slidesCount); let index = index"
-            class="pagination-dot"
-            [class.active]="currentIndex === index"
-            (click)="goToSlide(index)"
-          ></div>
-        </div>
       </div>
+    </div>
 
-      <div style="text-align: center">
-        <a href="/boutique" class="see-all-btn"> Voir tout les produits </a>
-      </div>
-    </section>
+    <button class="carousel-nav-btn next" (click)="nextSlide()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-chevron-right"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+        />
+      </svg>
+    </button>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-      lucide.createIcons();
+    <div class="pagination">
+      <div
+        *ngFor="let i of [].constructor(slidesCount); let index = index"
+        class="pagination-dot"
+        [class.active]="currentIndex === index"
+        (click)="goToSlide(index)"
+      ></div>
+    </div>
+  </div>
 
-      // Simple carousel functionality
-      const projects = document.querySelectorAll(".project-card");
-      const dots = document.querySelectorAll(".pagination-dot");
-      const prevBtn = document.querySelector(".prev");
-      const nextBtn = document.querySelector(".next");
-      let currentIndex = 0;
-
-      function updateCarousel() {
-        projects.forEach((project, index) => {
-          if (index >= currentIndex * 3 && index < currentIndex * 3 + 3) {
-            project.style.display = "block";
-          } else {
-            project.style.display = "none";
-          }
-        });
-
-        dots.forEach((dot, index) => {
-          if (index === currentIndex) {
-            dot.classList.add("active");
-          } else {
-            dot.classList.remove("active");
-          }
-        });
-      }
-
-      prevBtn.addEventListener("click", () => {
-        currentIndex =
-          (currentIndex - 1 + Math.ceil(projects.length / 3)) %
-          Math.ceil(projects.length / 3);
-        updateCarousel();
-      });
-
-      nextBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % Math.ceil(projects.length / 3);
-        updateCarousel();
-      });
-
-      dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-          currentIndex = index;
-          updateCarousel();
-        });
-      });
-
-      // Initialize
-      updateCarousel();
-
-      // Responsive adjustments
-      function handleResize() {
-        const isMobile = window.innerWidth < 768;
-        const slidesCount = isMobile
-          ? projects.length
-          : Math.ceil(projects.length / 3);
-
-        // Update dots based on screen size
-        document.querySelector(".pagination").innerHTML = "";
-        for (let i = 0; i < slidesCount; i++) {
-          const dot = document.createElement("div");
-          dot.className = `pagination-dot ${
-            i === currentIndex ? "active" : ""
-          }`;
-          dot.addEventListener("click", () => {
-            currentIndex = i;
-            updateCarousel();
-          });
-          document.querySelector(".pagination").appendChild(dot);
-        }
-
-        updateCarousel();
-      }
-
-      window.addEventListener("resize", handleResize);
-      handleResize();
-    </script>
-  </body>
-</html>
+  <div style="text-align: center">
+    <a href="/boutique" class="see-all-btn"> Voir tous les produits </a>
+  </div>
+</section>
