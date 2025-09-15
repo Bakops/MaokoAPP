@@ -226,10 +226,12 @@ body {
   background: linear-gradient(45deg, #2984e3, #1e40af);
   color: #fff;
   border: none;
-  border-radius: 12px;
+  border-radius: 0px;
   padding: 10px 16px;
   font-size: 12px;
+  letter-spacing: 2px;
   font-weight: 600;
+  text-transform: uppercase;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -354,7 +356,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-block;
-  border-radius: 8px;
+  border-radius: 0px;
 }
 
 .see-all-btn:hover {
