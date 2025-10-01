@@ -1,0 +1,35 @@
+.container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container h1 {
+  font-family: poppins;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.container h1 span {
+  color: #ff6f61;
+  text-transform: uppercase;
+}
+
+.sections-categorie {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.categorie {
+  background-color: #f0f0f0;
+  height: 500px;
+  flex: 1;
+  transition: all 0.5s ease-out;
+}
+
+.categorie:hover {
+  background-color: #e0e0e0;
+  transform: translate(-5px, -5px);
+  cursor: pointer;
+}
